@@ -3,6 +3,7 @@ class TurboAuth
 
   def self.facebook
     self.add_gems
+    self.add_jquery_turbolinks_to_application_js
     self.add_to_gitignore
     self.add_facebook_yml
     self.add_routes
@@ -22,8 +23,17 @@ class TurboAuth
 
   def self.add_gems
     File.open('Gemfile', 'a') do |file|
-      file.puts "\n#omniauth gems\ngem 'omniauth'\ngem 'omniauth-facebook', '1.4.0'\n"
+      file.puts "\n#omniauth gems\ngem 'omniauth'\ngem 'omniauth-facebook', '1.4.0'\n\ngem 'jquery-turbolinks'\n"
     end
+  end
+
+  def self.add_jquery_turbolinks_to_application_js
+    File.open('app/assets/javascripts/application.js', 'a+') { |source_file|
+      contents = source_file.read
+      newlines = "require turbolinks\n//= require jquery.turbolinks\n"
+      contents.gsub!(/[r][e][q][u][i][r][e][ ][t][u][r][b][o][l][i][n][k][s]/, newlines)
+      File.open('config/routes.rb', "w+") { |f| f.write(contents) }
+    }
   end
 
   def self.add_to_gitignore
@@ -120,7 +130,7 @@ class TurboAuth
   end
 
   def self.migrate
-    system ( "rake db:migrate" )
+    system ( "bundle exec rake db:migrate" )
   end
 
   def self.bundle
