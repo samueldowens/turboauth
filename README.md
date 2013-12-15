@@ -12,10 +12,10 @@ $gem install turboauth
 ##Usage
 
 Step 1. Create New Rails app (go into that apps folder)<br>
-Step 2. Install turboauth and run it with 'turboauth' in command line.<br>
+Step 2. Install turboauth and run it with 'turboauth' in the command line.<br>
 Step 3. Remove Turbolinks.<br>
 Step 4. Get Facebook info from https://developers.facebook.com/apps and paste it in config/facebook.yml (be sure to enable website with Facebook login and set the URL appropriately)<br>
-Step 5. Start your rails server.<br>
+Step 5. Start your rails server.<br>g
 
 ##Details
 This is meant to be run on a fresh rails application. It will encounter errors if you have already added a user model or a number of other actions.
