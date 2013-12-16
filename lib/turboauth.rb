@@ -1,6 +1,6 @@
 class TurboAuth
   TURBOAUTH_ROOT = File.expand_path('../', File.dirname(__FILE__))
-
+  #abstract paths into variables. Have each method take path as an argument. Pass path varibles in when called. Test with simpler paths.
   def self.facebook
     self.add_gems
     self.add_jquery_turbolinks_to_application_js
@@ -32,7 +32,7 @@ class TurboAuth
       contents = source_file.read
       newlines = "require turbolinks\n//= require jquery.turbolinks\n"
       contents.gsub!(/[r][e][q][u][i][r][e][ ][t][u][r][b][o][l][i][n][k][s]/, newlines)
-      File.open('config/routes.rb', "w+") { |f| f.write(contents) }
+      File.open('app/assets/javascripts/application.js', "w+") { |f| f.write(contents) }
     }
   end
 
