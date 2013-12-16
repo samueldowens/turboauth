@@ -3,6 +3,8 @@
 ## What is this?
 I got tired of having to set up all the configuration for authenticating users every time I wanted to make a small app or try something new. So I made a gem that runs after creating a new rails app that automatically sets up facebook authentication so that you can get right to the coding you wanted to do when you started your app.
 
+If you like this app, or have any feedback post here or get in touch on Twitter @samueldowens.
+
 ##Installation
 
 ```bash
